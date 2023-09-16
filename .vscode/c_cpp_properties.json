@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/usr/include/",
+        "/usr/include/*",
+        "/usr/local/include/",
+        "/usr/local/cuda/include/",
+        "/home/pcb/TensorRT-8.2.5.1/include/",
+        "${workspaceFolder}/include/",
+        "${workspaceFolder}/lib",
+        "${workspaceFolder}/PLateDetection_yolov5/include",
+        "${workspaceFolder}/PLateDetection_yolov7/include",
+        "${workspaceFolder}/PlateDetectionRecognition/include",
+        "${workspaceFolder}/PlateDetectionRecognition",
+        "${workspaceFolder}/PlateRecognition",
+        "${workspaceFolder}/PlateRecognition/include",
+        "${workspaceFolder}/common/",
+        "${workspaceFolder}/include/"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++17"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            //"program":"${workspaceFolder}/build/PlateRecognition/test/PlateRecognition_demo",
+            //"program":"${workspaceFolder}/build/PLateDetection_yolov7/test/PLateDetection_yolov7_demo",
+            //"program":"${workspaceFolder}/build/PLateDetection_yolov5/test/PLateDetection_yolov5_demo",
+            "program":"${workspaceFolder}/build/PlateDetectionRecognition/test/PLateAlgorithm_demo",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description":  "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+
+    ]
+}
