@@ -72,12 +72,12 @@ int main()
     config.yolov7plate_detect_enable=true;
     config.yolov7plate_nms_thresh=0.3;
     config.yolov7plate_confidence_thresh=0.5;
-    config.Yolov7PlateDetectModelPath="/home/pcb/Algorithm/Plate/PlateRecognition/PLateDetection_yolov7/test/yolov7plate_20230909.onnx";    //模型路径
+    config.Yolov7PlateDetectModelPath="./yolov7plate.onnx";    //模型路径
 
     Detector_Yolov7Plate detector_yolov7plate;
     detector_yolov7plate.InitDetector_Yolov7Plate(&config);
-    std::string imagepath="/home/pcb/Algorithm/Plate/PlateRecognition/PLateDetection_yolov7/test/test";                                     //图像路径
-    std::string imagepath1="/home/pcb/Algorithm/Plate/PlateRecognition/PLateDetection_yolov7/test/test2";                                   //保存结果路径
+    std::string imagepath="./data";                                     //图像路径
+    std::string imagepath1="./result";                                   //保存结果路径
     std::vector<std::string> imagList;
     std::vector<std::string>fileType{"jpg","png"};
     readFileList(const_cast<char *>(imagepath.c_str()),imagList,fileType);
@@ -111,9 +111,9 @@ int main()
             }
             std::string::size_type lastPos=imagList[i].find_last_of("/");
             std::string image_name=imagList[i].substr(lastPos+1,imagList[i].size() - lastPos);
-            //cv::imwrite(imagepath1+"/"+image_name,ImgVec[k]);
-            cv::imshow("show", ImgVec[k]);
-            cv::waitKey(0);
+            cv::imwrite(imagepath1+"/"+image_name,ImgVec[k]);
+            //cv::imshow("show", ImgVec[k]);
+            //cv::waitKey(0);
         }
     }
     

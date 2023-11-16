@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
-project(PLateAlgorithm)
+project(PlateDetectionRecognition)
 set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -O0 -g")# -rdynamic -g2 -ggdb
 
 

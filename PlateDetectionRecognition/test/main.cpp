@@ -8,8 +8,8 @@
 #include <opencv2/freetype.hpp>
 #include <chrono>
 
-#define yolov7_plate    1       //yolov5车牌检测
-#define yolov5_plate    0       //yolov7车牌检测
+#define yolov7_plate    0       //yolov7车牌检测
+#define yolov5_plate    1       //yolov5车牌检测
 
 std::string getHouZhui(std::string fileName)
 {
@@ -104,11 +104,11 @@ int main()
     //recognition
     config.plate_recognition_bs=1;
     config.plate_recognition_enable=true;
-    config.PlateReconitionModelPath="/home/pcb/Algorithm/Plate/PlateRecognition_data/crnn_s_0.989_0.987_best.onnx";  //识别模型路径
+    config.PlateReconitionModelPath="./plate_recognition_color.onnx";  //识别模型路径
 
 #if yolov7_plate
     //ylolv7 plate detect
-    config.Yolov7PlateDetectModelPath="/home/pcb/Algorithm/Plate/PlateRecognition_data/yolov7plate_20230909.onnx";//检测模型路径
+    config.Yolov7PlateDetectModelPath="./yolov7plate.onnx";//检测模型路径
     config.yolov7plate_confidence_thresh=0.5;
     config.yolov7plate_detect_bs=1;
     config.yolov7plate_nms_thresh=0.3;
@@ -116,7 +116,7 @@ int main()
 #endif
 
 #if yolov5_plate
-    config.Yolov5PlateDetectModelPath="/home/pcb/Algorithm/Plate/PlateRecognition_data/yolov5plate_20230910.onnx";//检测模型路径
+    config.Yolov5PlateDetectModelPath="./yolov5plate.onnx";//检测模型路径
     config.yolov5plate_confidence_thresh=0.5;
     config.yolov5plate_detect_bs=1;
     config.yolov5plate_nms_thresh=0.3;
@@ -131,9 +131,9 @@ int main()
     ft2->loadFontData(ttf_pathname,0);
     
     //image path
-    std::string imagepath="/media/pcb/Data2/车牌数据集/CRPD/CRPD_multi/train/images";   //待检测识别的图像文件夹
+    std::string imagepath="./data";   //待检测识别的图像文件夹
     //save path
-    std::string imagepath1="./yolov7_result";                                         //检测识别结果保存的文件夹
+    std::string imagepath1="./result";                                         //检测识别结果保存的文件夹
     std::vector<std::string> imagList;
     std::vector<std::string>fileType{"jpg","png"};
     readFileList(const_cast<char *>(imagepath.c_str()),imagList,fileType);

@@ -62,7 +62,7 @@ int main()
     Config config;
     config.plate_recognition_bs=1;
     config.plate_recognition_enable=true;
-    config.PlateReconitionModelPath="/home/pcb/Algorithm/Plate/PlateRecognition/PlateRecognition/test/crnn_m_0.9934_0.989_best.onnx";       //识别模型路径
+    config.PlateReconitionModelPath="./plate_recognition_color.onnx";       //识别模型路径
 
     PlateRecognition plate_rcognition;
     plate_rcognition.PlateRecognitionInit(&config);
@@ -73,9 +73,9 @@ int main()
     cv::Mat plate_img;
     double time_count=0.0;
     //image path      
-    std::string imagepath="/home/pcb/Algorithm/Plate/data/123_plate_detect/1111";                                                           
+    std::string imagepath="./data";                                                           
     //save path
-    std::string imagepath1="/home/pcb/Algorithm/Plate/PlateRecognition/PlateDetectionRecognition/test/123_result";
+    std::string imagepath1="./result";
     std::vector<std::string> imagList;
     std::vector<std::string>fileType{"jpg","png"};
     readFileList(const_cast<char *>(imagepath.c_str()),imagList,fileType);

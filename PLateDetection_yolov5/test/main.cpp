@@ -73,12 +73,12 @@ int main()
     config.yolov5plate_detect_enable=true;
     config.yolov5plate_nms_thresh=0.3;
     config.yolov5plate_confidence_thresh=0.5;
-    config.Yolov5PlateDetectModelPath="/home/pcb/Algorithm/Plate/PlateRecognition/PLateDetection_yolov5/test/yolov5plate_20230910.onnx";
+    config.Yolov5PlateDetectModelPath="./yolov5plate.onnx";
 
     Detector_Yolov5plate detector_yolov5plate;
     detector_yolov5plate.InitDetector_Yolov5plate(&config);
-    std::string imagepath="/home/pcb/Algorithm/Plate/PlateRecognition/PLateDetection_yolov7/test/test";
-    std::string imagepath1="/home/pcb/Algorithm/Plate/PlateRecognition/PLateDetection_yolov5/test/test";
+    std::string imagepath="./data";
+    std::string imagepath1="./result";
     std::vector<std::string> imagList;
     std::vector<std::string>fileType{"jpg","png"};
     readFileList(const_cast<char *>(imagepath.c_str()),imagList,fileType);
