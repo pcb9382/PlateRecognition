@@ -131,10 +131,18 @@ set(TensorRT_LIB "/xxx/xxx/TensorRT-8.2.5.1/lib" CACHE INTERNAL "TensorRT Librar
    cmake ..
    make -j6
 ```
- 
+# DataSets
+1. 中科大CCPD2019数据集[datasets](ttps://pan.baidu.com/s/1SCcALR1HlD_vfPw2tATSRw) 提取码：sz1y
+2. 中科大CCPD2020数据集[datasets](https://pan.baidu.com/s/1HPfZfz6OtKAnp4vaKFhq3A) 提取码：wr9q
+3. CRPD数据集[datasets](https://pan.baidu.com/s/1KJsBjJzQbPkTaWoXJWfkPg) 提取码：gggj
+4. 检测数据集[datasets](https://pan.baidu.com/s/1xa6zvOGjU02j8_lqHGVf0A) 提取码：pi6c,数据从CCPD和CRPD数据集中选取并转换的
+5. 从CCPD和CRPD截下来的车牌小图以及收集的一部分车牌 [dataset](https://pan.baidu.com/s/1xT-F3E5U3ul3o6gu6Zk94g)  提取码：g08q
+
 
 # References
 1. https://github.com/deepcam-cn/yolov5-face
 2. https://github.com/derronqi/yolov7-face/tree/main
 3. https://github.com/we0091234/yolov7-face-tensorrt
-4. https://github.com/derronqi/yolov8-face   
+4. https://github.com/derronqi/yolov8-face
+5. https://github.com/we0091234/crnn_plate_recognition
+6. https://github.com/we0091234/Chinese_license_plate_detection_recognition   
