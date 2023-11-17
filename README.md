@@ -25,10 +25,10 @@
 
 
 ## 识别效果
-<img src="PlateDetectionRecognition/test/yolov7_result/37_0101.jpg" alt="drawing" width="380"/> <img src="PlateDetectionRecognition/test/yolov7_result/37_0106.jpg" alt="drawing" width="380"/>
-<img src="PlateDetectionRecognition/test/yolov7_result/37_0107.jpg" alt="drawing" width="380"/> <img src="PlateDetectionRecognition/test/yolov7_result/37_0164.jpg" alt="drawing" width="380"/>
-<img src="PlateDetectionRecognition/test/yolov7_result/37_0315.jpg" alt="drawing" width="380"/> <img src="PlateDetectionRecognition/test/yolov7_result/37_0186.jpg" alt="drawing" width="380"/>
-<img src="PlateDetectionRecognition/test/yolov7_result/37_0303.jpg" alt="drawing" width="380"/> <img src="PlateDetectionRecognition/test/yolov7_result/37_0302.jpg" alt="drawing" width="380"/>
+<img src="resources/1.jpg" alt="drawing" width="380"/> <img src="resources/3.jpg" alt="drawing" width="380"/>
+<img src="resources/9.jpg" alt="drawing" width="380"/> <img src="resources/10.jpg" alt="drawing" width="380"/>
+<img src="PlateDetectionRecognition/test/yolov7_result/37_0315.jpg" alt="drawing" width="380"/> <img src="resources/2.jpg" alt="drawing" width="380"/>
+<img src="resources/7.jpg" alt="drawing" width="380"/> <img src="resources/8.jpg" alt="drawing" width="380"/>
 
 ## 特性
 1. 车牌识别在线体验:http://zhoujiayao.com:8200/
@@ -56,6 +56,7 @@
 9. 车牌识别准确率(测试集数量:2.4w张)
    | 模型 |  size    |  准确率   |速度| 平台|
 	|:----------:|:----------:|:----------:|:----------:|:----------:|
+   |plate_recognition_color|s|   92.40%|452.480us|RTX3090|
    |plate_recognition_s    |s|   98.90%|452.597us|RTX3090|
    |plate_recognition_m    |m|   99.35%|463.316us|RTX3090|
    |plate_recognition_l    |l|   99.56%|507.082us|RTX3090|

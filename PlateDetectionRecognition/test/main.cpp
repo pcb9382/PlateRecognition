@@ -93,8 +93,8 @@ void drawBboxes(cv::Mat &img ,PlateDet*PlateDets, cv::Ptr<cv::freetype::FreeType
         cv::rectangle(img, cv::Point(PlateDets[f].bbox.xmin, PlateDets[f].bbox.ymin),
                 cv::Point(PlateDets[f].bbox.xmax,PlateDets[f].bbox.ymax), cv::Scalar(255,0, 0), 2, 8, 0);
     }
-    cv::imshow("show", img);
-    cv::waitKey(1);
+    //cv::imshow("show", img);
+    //cv::waitKey(1);
 }
 
 int main()
