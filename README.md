@@ -4,8 +4,9 @@
 
 # Acknowledgments & Contact 
 ### 1.WeChat ID: cbp931126
-加我微信#(备注：PlateAlgorithm),拉进群
 ### 2.QQ Group：517671804
+加微信(备注：PlateAlgorithm),进讨论群可以获得10G大小的车牌检测和识别数据
+
 
 
 # PlateAlgorithm
@@ -131,13 +132,6 @@ set(TensorRT_LIB "/xxx/xxx/TensorRT-8.2.5.1/lib" CACHE INTERNAL "TensorRT Librar
    cmake ..
    make -j6
 ```
-# DataSets
-1. 中科大CCPD2019数据集[datasets](ttps://pan.baidu.com/s/1SCcALR1HlD_vfPw2tATSRw) 提取码：sz1y
-2. 中科大CCPD2020数据集[datasets](https://pan.baidu.com/s/1HPfZfz6OtKAnp4vaKFhq3A) 提取码：wr9q
-3. CRPD数据集[datasets](https://pan.baidu.com/s/1KJsBjJzQbPkTaWoXJWfkPg) 提取码：gggj
-4. 检测数据集[datasets](https://pan.baidu.com/s/1xa6zvOGjU02j8_lqHGVf0A) 提取码：pi6c,数据从CCPD和CRPD数据集中选取并转换的
-5. 从CCPD和CRPD截下来的车牌小图以及收集的一部分车牌 [dataset](https://pan.baidu.com/s/1xT-F3E5U3ul3o6gu6Zk94g)  提取码：g08q
-
 
 # References
 1. https://github.com/deepcam-cn/yolov5-face

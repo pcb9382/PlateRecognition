@@ -8,8 +8,9 @@
 #include <opencv2/freetype.hpp>
 #include <chrono>
 
-#define yolov7_plate    0       //yolov7车牌检测
-#define yolov5_plate    1       //yolov5车牌检测
+#define yolov7_plate    1       //yolov7车牌检测
+#define yolov5_plate    0       //yolov5车牌检测
+#define PLATE_MAX       10       //每张图片最大车牌数量
 
 std::string getHouZhui(std::string fileName)
 {
@@ -96,6 +97,27 @@ void drawBboxes(cv::Mat &img ,PlateDet*PlateDets, cv::Ptr<cv::freetype::FreeType
     //cv::imshow("show", img);
     //cv::waitKey(1);
 }
+void initPlateDet(PlateDet*PlateDets)
+{
+    for (size_t i = 0; i < PLATE_MAX; i++)
+    {
+
+        PlateDets[i].bbox.xmin=0;
+        PlateDets[i].bbox.ymin=0;
+        PlateDets[i].bbox.xmax=0;
+        PlateDets[i].bbox.ymax=0;
+        PlateDets[i].confidence=0;
+        for (size_t j = 0; j < 8; j++)
+        {
+            PlateDets[i].key_points[j]=0;
+        }
+        PlateDets[i].label=-1;
+        PlateDets[i].plate_index=0;
+    }
+    return;
+    
+}
+
 
 int main()
 {
@@ -109,7 +131,7 @@ int main()
 #if yolov7_plate
     //ylolv7 plate detect
     config.Yolov7PlateDetectModelPath="./yolov7plate.onnx";//检测模型路径
-    config.yolov7plate_confidence_thresh=0.5;
+    config.yolov7plate_confidence_thresh=0.3;
     config.yolov7plate_detect_bs=1;
     config.yolov7plate_nms_thresh=0.3;
     config.yolov7plate_detect_enable=true;
@@ -117,7 +139,7 @@ int main()
 
 #if yolov5_plate
     config.Yolov5PlateDetectModelPath="./yolov5plate.onnx";//检测模型路径
-    config.yolov5plate_confidence_thresh=0.5;
+    config.yolov5plate_confidence_thresh=0.3;
     config.yolov5plate_detect_bs=1;
     config.yolov5plate_nms_thresh=0.3;
     config.yolov5plate_detect_enable=true;
@@ -137,8 +159,8 @@ int main()
     std::vector<std::string> imagList;
     std::vector<std::string>fileType{"jpg","png"};
     readFileList(const_cast<char *>(imagepath.c_str()),imagList,fileType);
-    PlateDet PlateDets[10];
-    for (size_t j = 0; j < 10; j++)
+    PlateDet PlateDets[PLATE_MAX];
+    for (size_t j = 0; j < PLATE_MAX; j++)
     {
         PlateDets[j].plate_license=new char[20];
         PlateDets[j].plate_color=new char[6];
@@ -159,6 +181,7 @@ int main()
             plate_imagedata->width=plateimg.cols;
             plate_imagedata->image=plateimg.data;
             auto start = std::chrono::system_clock::now();
+            initPlateDet(PlateDets);
 #if yolov5_plate
             PlateRecognition_yolov5(p,plate_imagedata,PlateDets);
 #endif
@@ -174,7 +197,7 @@ int main()
             cv::imwrite(imagepath1+"/"+image_name,plateimg);
         }
     //}
-    for (size_t j = 0; j < 10; j++)
+    for (size_t j = 0; j < PLATE_MAX; j++)
     {
         delete []PlateDets[j].plate_license;
         PlateDets[j].plate_license=NULL;
