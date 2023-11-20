@@ -37,8 +37,8 @@
    
    | 文件夹 | State    |  说明   |
    |:----------|:----------|:----------|
-   |PLateDetection_yolov5                 |Done|           yolov7 车牌检测              |
-   |PLateDetection_yolov7 				      |Done|           yolov5 车牌检测              |
+   |PLateDetection_yolov5                 |Done|           yolov5 车牌检测              |
+   |PLateDetection_yolov7 				      |Done|           yolov7 车牌检测              |
    |PLateDetection_yolov8 				      |Doing|          yolov8 车牌检测              |
    |PlateRecognition 				         |Done|           车牌识别                     |
    |PlateDetectionRecognition 				|Done|           车牌检测->车牌校正->车牌识别    |
@@ -106,8 +106,8 @@ int Release(void*p,Config*config);
 ```
 
 ## 2.环境
-1. ubuntu20.04+cuda11.1+cudnn8.2.1+TrnsorRT8.2.5.1(测试通过)
-2. ubuntu18.04+cuda10.2+cudnn8.2.1+TrnsorRT8.2.5.1(测试通过)
+1. ubuntu20.04+cuda11.1+cudnn8.2.1+TensorRT8.2.5.1(测试通过)
+2. ubuntu18.04+cuda10.2+cudnn8.2.1+TensorRT8.2.5.1(测试通过)
 3. Win10+cuda11.1+cudnn8.2.1+TrnsorRT8.2.5.1      (测试通过)
 4. 其他环境请自行尝试或者加群了解
 
