@@ -43,7 +43,7 @@ HZFLAG Detector_Yolov7Plate::InitDetector_Yolov7Plate(Config*config)
     }
     Onnx2Ttr onnx2trt;
     //IHostMemory* modelStream{ nullptr };
-    onnx2trt.onnxToTRTModel(gLogger,model_path.c_str(),config->yolov7plate_detect_bs,out_engine.c_str());
+    onnx2trt.onnxToTRTModel(model_path.c_str(),config->yolov5plate_detect_bs,out_engine.c_str(),&gLogger);
   }
   size_t size{0};
   std::ifstream file(out_engine, std::ios::binary);//out_engine"/home/pcb/PlateRecognition_Linux_Release/yolov7Plate_test/yolov7-Plate-tensorrt/yolov7s-Plate_batch=1.engine"

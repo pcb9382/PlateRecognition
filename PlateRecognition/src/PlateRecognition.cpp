@@ -40,7 +40,7 @@ HZFLAG PlateRecognition:: PlateRecognitionInit(Config*config)
 			return HZ_ERROR;
 		}
 		Onnx2Ttr onnx2trt;
-		onnx2trt.onnxToTRTModel(gLogger,model_path.c_str(),config->plate_recognition_bs,out_engine.c_str());//config->classs_path
+		onnx2trt.onnxToTRTModel(model_path.c_str(),config->yolov5plate_detect_bs,out_engine.c_str(),&gLogger);;//config->classs_path
 	}
 	std::ifstream file(out_engine, std::ios::binary);
 	if (file.good())

@@ -13,30 +13,22 @@
 #include "NvOnnxParser.h"
 #include "NvInferPlugin.h"
 #include "logging.h"
-#define CHECK(status)                             \
-    do                                            \
-    {                                             \
-        auto ret = (status);                      \
-        if (ret != 0)                             \
-        {                                         \
-            std::cout << "Cuda failure: " << ret; \
-            abort();                              \
-        }                                         \
-    } while (0)
+
 
 using namespace nvinfer1;
 class Onnx2Ttr
 {
 private:
+    //Logger gLogger;
     int gUseDLACore;
 public:
     Onnx2Ttr(/* args */);
     ~Onnx2Ttr();
     void enableDLA(IBuilderConfig* b, int useDLACore);
     int get_stream_from_file(const char* filename, unsigned char* buf, size_t* size);
-    void onnxToTRTModel(Logger gLogger,const char* modelFile,         // name of the onnx model
+    void onnxToTRTModel(const char* modelFile,         // name of the onnx model
                     unsigned int maxBatchSize,     // batch size - NB must be at least as large as the batch we want to run with
-                    const char* out_trtfile);
+                    const char* out_trtfile,Logger*gLogger);
 
 };
 

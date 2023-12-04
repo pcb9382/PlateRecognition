@@ -40,9 +40,7 @@ int Onnx2Ttr::get_stream_from_file(const char* filename, unsigned char* buf, siz
   }
 }
 
-void Onnx2Ttr::onnxToTRTModel(Logger gLogger,const char* modelFile,         // name of the onnx model
-    unsigned int maxBatchSize,                               // batch size - NB must be at least as large as the batch we want to run with
-    const char* out_trtfile) 
+void Onnx2Ttr::onnxToTRTModel(const char* modelFile,unsigned int maxBatchSize,const char* out_trtfile,Logger*gLogger) 
 {
   int verbosity = (int) nvinfer1::ILogger::Severity::kWARNING;
 
@@ -57,16 +55,16 @@ void Onnx2Ttr::onnxToTRTModel(Logger gLogger,const char* modelFile,         // n
     std::cout << creator_list[i]->getPluginName() << " " << creator_list[i]->getPluginVersion() << std::endl;
   }
   // create the builder
-  IBuilder* builder = createInferBuilder(gLogger);
+  IBuilder* builder = createInferBuilder(*gLogger);
   nvinfer1::IBuilderConfig* config = builder->createBuilderConfig();
   nvinfer1::INetworkDefinition* network = builder->createNetworkV2(1U);
 
-  auto parser = nvonnxparser::createParser(*network, gLogger);
+  auto parser = nvonnxparser::createParser(*network, *gLogger);
 
   if (!parser->parseFromFile(modelFile, verbosity))
   {
     std::string msg("failed to parse onnx file");
-    gLogger.log(nvinfer1::ILogger::Severity::kERROR, msg.c_str());
+    (*gLogger).log(nvinfer1::ILogger::Severity::kERROR, msg.c_str());
     exit(EXIT_FAILURE);
   }
 
@@ -103,7 +101,7 @@ void Onnx2Ttr::onnxToTRTModel(Logger gLogger,const char* modelFile,         // n
   // Build the engine
   builder->setMaxBatchSize(maxBatchSize);
   config->setMaxWorkspaceSize(1 << 30);
-  config->setFlag(BuilderFlag::kFP16);
+  //config->setFlag(BuilderFlag::kFP16);
 
   std::cout << "Total DLA Core : " << builder->getNbDLACores() << std::endl;
 
@@ -111,9 +109,7 @@ void Onnx2Ttr::onnxToTRTModel(Logger gLogger,const char* modelFile,         // n
   auto* engine = builder->buildSerializedNetwork(*network, *config);
   assert(engine);
 
-  // we can destroy the parser
-  parser->destroy();
-
+  
   // serialize the engine, then close everything down
   assert(engine != nullptr && "engine == nullptr");
 
@@ -124,5 +120,12 @@ void Onnx2Ttr::onnxToTRTModel(Logger gLogger,const char* modelFile,         // n
     return ;
   }
   p.write(reinterpret_cast<const char*>(engine->data()), engine->size());
+  
+  // we can destroy the parser
+  parser->destroy();
+  engine->destroy();
+  config->destroy();
+  network->destroy();
+
   return;
 }

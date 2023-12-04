@@ -41,7 +41,7 @@ HZFLAG Detector_Yolov5plate::InitDetector_Yolov5plate(Config*config)
         return HZ_WITHOUTMODEL;
     }
     Onnx2Ttr onnx2trt;
-    onnx2trt.onnxToTRTModel(gLogger,model_path.c_str(),config->yolov5plate_detect_bs,out_engine.c_str());
+    onnx2trt.onnxToTRTModel(model_path.c_str(),config->yolov5plate_detect_bs,out_engine.c_str(),&gLogger);
   }
   size_t size{0};
   std::ifstream file(out_engine, std::ios::binary);
