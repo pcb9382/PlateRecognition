@@ -4,7 +4,6 @@
 
 # Acknowledgments & Contact 
 ### 1.WeChat ID: cbp931126
-### 2.QQ Group：517671804
 加微信(备注：PlateAlgorithm),进讨论群(群里超多大佬)可以获得10G大小的车牌检测和识别数据
 
 
