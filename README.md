@@ -4,9 +4,31 @@
 
 # Acknowledgments & Contact 
 ### 1.WeChat ID: cbp931126
-加微信(备注：PlateAlgorithm),进讨论群(群里超多大佬)可以获得10G大小的车牌检测和识别数据
+加微信(备明来意),进讨论群(群里超多大佬)可以获得10G大小的车牌检测和识别数据
 
+# Web Test
+车牌识别在线体验:http://zhoujiayao.com:8200/
 
+## 特性
+1. 支持Linux/Win下CPU、GPU部署，支持定制化开发
+2. 支持Android、uniapp部署
+3. 支持瑞芯微侧端NPU部署
+   | 型号 |速度|精度 |接口|
+   |:----------:|:----------:|:----------:|:----------:|
+   |rk3588           |18ms|       99%+    |C/C++、python|
+   |rk3568 	         |126ms|      99%+    |C/C++、python|
+   |rv1126 	         |62ms|       99%+    |  C/C++     |
+   |rv1106 	         |158ms|      99%+    |  C/C++     |
+
+4. 支持算能BM1684系列侧端部署
+5. 支持爱芯系列侧端部署
+6. Linux/Win下支持TensorRT、OnnxRuntime、OpenVINO、NCNN等框架推理，支持C调用，python调用，C#调用
+
+## 识别效果
+<img src="resources/1.jpg" alt="drawing" width="380"/> <img src="resources/3.jpg" alt="drawing" width="380"/>
+<img src="resources/9.jpg" alt="drawing" width="380"/> <img src="resources/10.jpg" alt="drawing" width="380"/>
+<img src="PlateDetectionRecognition/test/yolov7_result/37_0315.jpg" alt="drawing" width="380"/> <img src="resources/2.jpg" alt="drawing" width="380"/>
+<img src="resources/7.jpg" alt="drawing" width="380"/> <img src="resources/8.jpg" alt="drawing" width="380"/>
 
 # PlateAlgorithm
 ## **车牌识别算法，支持12种中文车牌类型**
@@ -23,16 +45,8 @@
 **11 双层农用车牌**
 **12 民航车牌**
 
-
-## 识别效果
-<img src="resources/1.jpg" alt="drawing" width="380"/> <img src="resources/3.jpg" alt="drawing" width="380"/>
-<img src="resources/9.jpg" alt="drawing" width="380"/> <img src="resources/10.jpg" alt="drawing" width="380"/>
-<img src="PlateDetectionRecognition/test/yolov7_result/37_0315.jpg" alt="drawing" width="380"/> <img src="resources/2.jpg" alt="drawing" width="380"/>
-<img src="resources/7.jpg" alt="drawing" width="380"/> <img src="resources/8.jpg" alt="drawing" width="380"/>
-
-## 特性
-1. 车牌识别在线体验:http://zhoujiayao.com:8200/
-2. 车牌检测(yolov5plate,yolov7plate,yolov8playe),车牌校正，车牌识别，车牌检测识别;
+## 说明
+1. 车牌检测(yolov5plate,yolov7plate,yolov8playe),车牌校正，车牌识别，车牌检测识别;
    
    | 文件夹 | State    |  说明   |
    |:----------|:----------|:----------|
@@ -42,24 +56,23 @@
    |PlateRecognition 				         |Done|           车牌识别                     |
    |PlateDetectionRecognition 				|Done|           车牌检测->车牌校正->车牌识别    |
    
-3. 所有模型均使用C++和TensorRT加速推理,yolov7plate的前后处理使用cuda加速,(其他模型加速优化也可参考);
-4. 所有模型使用C++和OnnxRuntime.OpenVINO,NCNN加速推理(TO DO);
-5. 提供C接口，可以直接移植在项目里;
-6. 提供python调用，C#调用的demo(TODO)
-7. 根据不同的显卡型号自动生成对应的engine(如果文件夹下有其他显卡适配engine，则删除engine才能重新生成使用中的显卡对应的engien);
-8. PlateDetectionRecognition->test->main.cpp文件中的条件编译测试说明
+2. 所有模型均使用C++和TensorRT加速推理,yolov7plate的前后处理使用cuda加速,(其他模型加速优化也可参考);
+3. 根据不同的显卡型号自动生成对应的engine(如果文件夹下有其他显卡适配engine，则删除engine才能重新生成使用中的显卡对应的engien);
+4. PlateDetectionRecognition->test->main.cpp文件中的条件编译测试说明
 	| 测试类别 |  enable    |  说明   |
 	|:----------|:----------|:----------|
    |yolov5_plate                 |1|           yolov7车牌检测               |
    |yolov7_plate 				      |1|           yolov5 车牌检测              |
 
-9. 车牌识别准确率(测试集数量:2.4w张)
+5. 车牌识别准确率(测试集数量:5.2w张)
    | 模型 |  size    |  准确率   |速度| 平台|
 	|:----------:|:----------:|:----------:|:----------:|:----------:|
    |plate_recognition_color|s|   92.40%|452.480us|RTX3090|
    |plate_recognition_s    |s|   98.90%|452.597us|RTX3090|
    |plate_recognition_m    |m|   99.35%|463.316us|RTX3090|
    |plate_recognition_l    |l|   99.56%|507.082us|RTX3090|
+
+
 
 ## 算法说明
 
