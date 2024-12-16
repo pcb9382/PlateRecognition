@@ -4,7 +4,8 @@
 
 # Acknowledgments & Contact 
 ### 1.WeChat ID: cbp931126
-加微信(备明来意),进讨论群(群里超多大佬)可以获得10G大小的车牌检测和识别数据
+1.商务合作请加微信(备明来意),
+2.可以获得部分车牌数据集(备明来意)
 
 # Web Test
 车牌识别在线体验:http://zhoujiayao.com:8200/
@@ -16,13 +17,14 @@
    | 型号 |速度|精度 |接口|
    |:----------:|:----------:|:----------:|:----------:|
    |rk3588           |18ms|       99%+    |C/C++、python|
-   |rk3568 	         |126ms|      99%+    |C/C++、python|
+   |rk3568 	         |70ms|       99%+    |C/C++、python|
    |rv1126 	         |62ms|       99%+    |  C/C++     |
    |rv1106 	         |158ms|      99%+    |  C/C++     |
 
 4. 支持算能BM1684系列侧端部署
 5. 支持爱芯系列侧端部署
-6. Linux/Win下支持TensorRT、OnnxRuntime、OpenVINO、NCNN等框架推理，支持C调用，python调用，C#调用
+6. 海思系列 Hi3519DV500 Hi3516DV500  Hi3516DV300 Hi3516CV610等
+7. Linux/Win下支持TensorRT、OnnxRuntime、OpenVINO、NCNN等框架推理，支持C调用，python调用，C#调用
 
 ## 识别效果
 <img src="resources/1.jpg" alt="drawing" width="380"/> <img src="resources/3.jpg" alt="drawing" width="380"/>
@@ -120,7 +122,7 @@ int Release(void*p,Config*config);
 ## 2.环境
 1. ubuntu20.04+cuda11.1+cudnn8.2.1+TensorRT8.2.5.1(测试通过)
 2. ubuntu18.04+cuda10.2+cudnn8.2.1+TensorRT8.2.5.1(测试通过)
-3. Win10+cuda11.1+cudnn8.2.1+TrnsorRT8.2.5.1      (测试通过)
+3. Win10+cuda11.1+cudnn8.2.1+TensorRT8.2.5.1      (测试通过)
 4. 其他环境请自行尝试或者加群了解
 
 
