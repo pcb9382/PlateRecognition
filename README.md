@@ -4,7 +4,7 @@
 
 # Acknowledgments & Contact 
 ### 1.WeChat ID: cbp931126
-1. 可以获得部分车牌数据集(备明来意)
+加微信可以获得部分车牌数据集和讨论技术(备明来意)
 
 # Web Test
 车牌识别在线体验:http://zhoujiayao.com:8200/
