@@ -4,8 +4,8 @@
 
 # Acknowledgments & Contact 
 ### 1.WeChat ID: cbp931126
-1.加入讨论群(备注：PlateAlgorithm),大佬多多多卷卷卷；
-2.进讨论群可以获得10G大小的车牌检测和识别数据；
+1. 加入讨论群(备注：PlateAlgorithm),大佬多多多卷卷卷；
+2. 进讨论群可以获得10G大小的车牌检测和识别数据；
 
 # Web Test
 车牌识别在线体验:http://zhoujiayao.com:8200/
