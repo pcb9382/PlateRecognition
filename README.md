@@ -4,7 +4,8 @@
 
 # Acknowledgments & Contact 
 ### 1.WeChat ID: cbp931126
-加微信可以获得部分车牌数据集和讨论技术(备明来意)
+1.加入讨论群(备注：PlateAlgorithm),大佬多多多卷卷卷；
+2.进讨论群可以获得10G大小的车牌检测和识别数据；
 
 # Web Test
 车牌识别在线体验:http://zhoujiayao.com:8200/
