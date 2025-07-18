@@ -8,12 +8,12 @@
 2. 进讨论群可以获得10G大小的车牌检测和识别数据；
 
 # Web Test
-车牌识别在线体验:http://zhoujiayao.com:8200/
+大陆车牌识别、港澳车牌识别、台湾车牌识别在线体验:http://zhoujiayao.com:8200/
 
 ## 特性
-1. 支持Linux/Win下CPU、GPU部署，支持定制化开发
+1. 支持Linux/Win/Centos/Ubuntu下CPU、GPU部署，支持定制化开发
 2. 支持Android、uniapp部署
-3. 支持瑞芯微侧端NPU部署
+3. 支持瑞芯微rv1106/rv1106/rk3588/rk3568等侧端部署
    | 型号 |速度|精度 |接口|
    |:----------:|:----------:|:----------:|:----------:|
    |rk3588           |18ms|       99%+    |C/C++、python|
@@ -22,9 +22,9 @@
    |rv1106 	         |158ms|      99%+    |  C/C++     |
 
 4. 支持算能BM1684系列侧端部署
-5. 支持爱芯系列侧端部署
-6. 海思系列 Hi3519DV500 Hi3516DV500  Hi3516DV300 Hi3516CV610等
-7. Linux/Win下支持TensorRT、OnnxRuntime、OpenVINO、NCNN等框架推理，支持C调用，python调用，C#调用
+5. 支持爱芯系列侧端部署:
+6. 支持海思系列侧端部署:SS928/Hi3403/Hi3519DV500/Hi3516DV500/Hi3516DV300/Hi3516CV610等
+7. Linux/Win/Centos/Ubuntu下支持TensorRT、OnnxRuntime、OpenVINO、NCNN等框架推理，支持C/C++，python，C#,Java等语言调用
 
 ## 识别效果
 <img src="resources/1.jpg" alt="drawing" width="380"/> <img src="resources/3.jpg" alt="drawing" width="380"/>
