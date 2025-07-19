@@ -95,7 +95,20 @@
         "codecvt": "cpp",
         "fft": "cpp",
         "filesystem": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "any": "cpp",
+        "charconv": "cpp",
+        "csetjmp": "cpp",
+        "cuchar": "cpp",
+        "forward_list": "cpp",
+        "netfwd": "cpp",
+        "regex": "cpp",
+        "rope": "cpp",
+        "slist": "cpp",
+        "future": "cpp",
+        "scoped_allocator": "cpp",
+        "shared_mutex": "cpp",
+        "variant": "cpp"
     },
     "editor.fontSize": 14
 }
