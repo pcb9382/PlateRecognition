@@ -77,7 +77,7 @@
    |PlateDetectionRecognition 				|Done|           车牌检测->车牌校正->车牌识别    |
    
 2. 所有模型均使用C++和TensorRT加速推理,yolov7plate的前后处理使用cuda加速,(其他模型加速优化也可参考);
-3. 根据不同的显卡型号自动生成对应的engine(如果文件夹下有其他显卡适配engine，则删除engine才能重新生成使用中的显卡对应的engien);
+3. 根据不同的显卡型号自动生成对应的engine(如果文件夹下有其他显卡适配engine，则删除engine才能重新生成使用中的显卡对应的engine);
 4. PlateDetectionRecognition->test->main.cpp文件中的条件编译测试说明
 	| 测试类别 |  enable    |  说明   |
 	|:----------|:----------|:----------|
