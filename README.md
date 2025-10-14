@@ -27,6 +27,11 @@
 7. Linux/Win/Centos/Ubuntu下支持TensorRT、OnnxRuntime、OpenVINO、NCNN等框架推理，支持C/C++，python，C#,Java等语言调用
 
 ## 识别效果
+
+### 韩国车牌识别效果
+<img src="resources/1c30874f261703b7b8b20f93fb4ecfa1.jpg" alt="drawing" width="380"/> <img src="resources/438278612b5b53d29b563a0c92ba58c9.jpg" alt="drawing" width="380"/>
+<img src="resources/13a9d96babfbad98417379ad59d8de53.jpg" alt="drawing" width="380"/> <img src="resources/5014889dcc17dab2bf77a14a589b3164.jpg" alt="drawing" width="380"/>
+
 ### 台湾车牌识别效果
 <img src="resources/taiwan_081294.jpg" alt="drawing" width="380"/> <img src="resources/taiwan_081657.jpg" alt="drawing" width="380"/>
 <img src="resources/taiwan_083023.jpg" alt="drawing" width="380"/> <img src="resources/taiwan_083192.jpg" alt="drawing" width="380"/>
