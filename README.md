@@ -5,26 +5,28 @@
 # Acknowledgments & Contact 
 ### 1.WeChat ID: cbp931126
 1. 加入讨论群(备注：PlateAlgorithm),大佬多多多卷卷卷；
-2. 进讨论群可以获得10G大小的车牌检测和识别数据；
+2. 加微信可以获得整理好的开源和部分私有车牌检测和识别数据(数据需要30元费用)；
 
 # Web Test
 大陆车牌识别、港澳车牌识别、台湾车牌识别在线体验:http://zhoujiayao.com:8200/
 
 ## 特性
 1. 支持Linux/Win/Centos/Ubuntu下CPU、GPU部署，支持定制化开发
-2. 支持Android、uniapp部署
-3. 支持瑞芯微rv1106/rv1106/rk3588/rk3568等侧端部署
-   | 型号 |速度|精度 |接口|
-   |:----------:|:----------:|:----------:|:----------:|
-   |rk3588           |18ms|       99%+    |C/C++、python|
-   |rk3568 	         |70ms|       99%+    |C/C++、python|
-   |rv1126 	         |62ms|       99%+    |  C/C++     |
-   |rv1106 	         |158ms|      99%+    |  C/C++     |
+2. 支持C/C++，python，C#,Java等语言调用
+3. 支持Android、uniapp部署
+4. 支持瑞芯微rv1106/rv1106/rk3588/rk3568/rk3576等侧端部署，可获取测试demo(微信ID: cbp931126)
+   | 型号 |速度|精度 |接口|测试系统|
+   |:----------:|:----------:|:----------:|:----------:|:----------:|
+   |rk3588           |~25ms|       99%+    |C/C++、python|ubuntu、buildroot|
+   |rk3576           |~31ms|       99%+    |C/C++、python|ubuntu、buildroot|
+   |rk3568 	         |~70ms|       99%+    |C/C++、python|ubuntu、buildroot|
+   |rv1126B 	      |~50ms|       99%+    |  C/C++      |ubuntu、buildroot|
+   |rv1126 	         |~62ms|       99%+    |  C/C++      |ubuntu、buildroot|
+   |rv1106 	         |~158ms|      99%+    |  C/C++      |buildroot|
+5. 支持海思系列侧端部署:SS928/Hi3403/Hi3519DV500/Hi3516DV500/Hi3516DV300/Hi3516CV610等，获取测试demo(微信ID: cbp931126)
+6. 支持算能BM1684系列侧端部署
+7. 支持爱芯系列侧端部署:
 
-4. 支持算能BM1684系列侧端部署
-5. 支持爱芯系列侧端部署:
-6. 支持海思系列侧端部署:SS928/Hi3403/Hi3519DV500/Hi3516DV500/Hi3516DV300/Hi3516CV610等
-7. Linux/Win/Centos/Ubuntu下支持TensorRT、OnnxRuntime、OpenVINO、NCNN等框架推理，支持C/C++，python，C#,Java等语言调用
 
 ## 识别效果
 
