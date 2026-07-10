@@ -1,4 +1,4 @@
-[简体中文](./README.md) | [繁體中文](./README_zh-TW.md) | English | [한국어](./README_ko.md)
+[简体中文](./README.md) | [繁體中文](./README_zh.md) | English | [한국어](./README_ko.md)
 
 If you find this project useful, please consider giving it a Star ⭐️🌟. Thank you!
 

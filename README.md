@@ -1,4 +1,4 @@
-简体中文 | [繁體中文](./README_zh-TW.md) | [English](./README_en.md) | [한국어](./README_ko.md)
+简体中文 | [繁體中文](./README_zh.md) | [English](./README_en.md) | [한국어](./README_ko.md)
 
 如果觉得有用，不妨给个Star⭐️🌟支持一下吧~ 谢谢！
 
