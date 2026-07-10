@@ -1,4 +1,4 @@
-简体中文 | [English](./README_en.md)
+简体中文 | [繁體中文](./README_zh-TW.md) | [English](./README_en.md) | [한국어](./README_ko.md)
 
 如果觉得有用，不妨给个Star⭐️🌟支持一下吧~ 谢谢！
 
@@ -8,20 +8,24 @@
 2. 加微信可以获得整理好的开源和部分私有车牌检测和识别数据(数据需要30元费用)；
 
 # Web Test
-大陆车牌识别、港澳车牌识别、台湾车牌识别在线体验:http://zhoujiayao.com:8200/
+大陆车牌识别、港澳车牌识别、台湾车牌识别在线体验:http://vision.zhoujiayao.com/
 
 ## 特性
 1. 支持车牌识别+车牌颜色+车辆距离+车道线识别
-2. 支持Linux、Win、Centos、Ubuntu、统信UOS、麒麟系统(Kylin)下CPU、GPU部署，支持定制化开发
-3. 支持C/C++，python，C#、Java等语言调用
-4. 支持Android、ios、uniapp部署，可获取商用测试demo(微信ID: cbp931126)
+2. 支持车辆类型+车辆颜色+车头车尾+停车位识别
+3. 支持Linux、Win、Centos、Ubuntu、统信UOS、麒麟系统(Kylin)下CPU、GPU部署，支持定制化开发
+4. 支持C/C++，python，C#、Java等语言调用
+5. 支持Android、ios、鸿蒙系统(HarmonyOS)部署，可获取商用测试demo(微信ID: cbp931126)
    |型号 |速度|精度 |接口|测试系统|图像大小|
    |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-   |红米K30pro(骁龙865)     |~70ms(Cpu/4Core)|       99%+    |kotlin、java|android|1920*1080|
-   |红米K60(骁龙8+Gen1)        |~60ms(Cpu/4Core)|       99%+    |kotlin、java|android|1920*1080|
-   |iphone13(A15)       |~50ms(Cpu/2Core)|       99%+    |swift、Objective-C|ios|1920*1080|
-   |iPad Air 3(A12)      |~100ms(Cpu/2Core)|       99%+    |swift、Objective-C|ios|1920*1080|
-5. 支持瑞芯微rv1106/rv1106/rk3588/rk3568/rk3576等侧端部署，可获取商用测试demo(微信ID: cbp931126)
+   |红米K30pro(骁龙865)     |~70ms(CPU/4Core)|       99%+    |kotlin、java|android|1920*1080|
+   |红米K60(骁龙8+Gen1)        |~60ms(CPU/3Core)|       99%+    |kotlin、java|android|1920*1080|
+   |iphone13(A15)       |~50ms(CPU/2Core)|       99%+    |swift、Objective-C|ios|1920*1080|
+   |iPad Air 3(A12)      |~100ms(CPU/2Core)|       99%+    |swift、Objective-C|ios|1920*1080|
+   |iphone13(A15)       |~13ms(NPU)|       99%+    |swift、Objective-C|ios|1920*1080|
+   |iPad Air 3(A12)      |~35ms(NPU)|       99%+    |swift、Objective-C|ios|1920*1080|
+   |UNISOC7885(展锐P7885))      |~50ms/150ms(NPU/CPU)|       99%+   |kotlin、java|android|1920*1080|
+6. 支持瑞芯微rv1106/rv1106/rk3588/rk3568/rk3576等侧端部署，可获取商用测试demo(微信ID: cbp931126)
    | 型号 |速度|精度 |接口|测试系统|图像大小|
    |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
    |rk3588           |~25ms|       99%+    |C/C++、python|ubuntu、buildroot、debian、android|1920*1080|
@@ -30,14 +34,14 @@
    |rv1126B 	      |~25ms|       99%+    |  C/C++      |ubuntu、buildroot、debian、android|1920*1080|
    |rv1126 	         |~62ms|       99%+    |  C/C++      |ubuntu、buildroot|1920*1080|
    |rv1106 	         |~150ms|      99%+    |  C/C++      |buildroot|1920*1080|
-6. 支持海思系列侧端部署:SS928/Hi3403/Hi3519DV500/Hi3516DV500/Hi3516DV300/Hi3516CV610等，获取商用测试demo(微信ID: cbp931126)
+7. 支持海思系列侧端部署:SS928/Hi3403/Hi3519DV500/Hi3516DV500/Hi3516DV300/Hi3516CV610等，获取商用测试demo(微信ID: cbp931126)
    | 型号 |速度|精度 |接口|测试系统|图像大小|
    |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
    |SS928/Hi3403 |~40ms|       99%+    |C/C++|ubuntu、BusyBox|1920*1080|
    |Hi3519DV500  |~50ms|       99%+    |C/C++|BusyBox|1920*1080|
    |Hi3516CV610  |~150ms|       99%+    |C/C++|BusyBox|1920*1080|
-7. 支持算能BM1684系列侧端部署
-8. 支持爱芯系列侧端部署:
+8. 支持算能BM1684系列侧端部署
+9. 支持爱芯系列侧端部署:
 
 
 ## 识别效果
@@ -69,7 +73,7 @@
 <img src="resources/1(313).jpg" alt="drawing" width="380"/> <img src="resources/1(323).jpg" alt="drawing" width="380"/>
 
 # PlateAlgorithm
-## **车牌识别算法，支持12种中文车牌类型**
+## **车牌识别算法，支持11种中文车牌类型**
 **1.单行蓝牌**
 **2.单行黄牌**
 **3.新能源车牌**
@@ -81,7 +85,6 @@
 **9 使馆车牌**
 **10 港澳牌车**
 **11 双层农用车牌**
-**12 民航车牌**
 
 ## 说明
 1. 车牌检测(yolov5plate,yolov7plate,yolov8playe),车牌校正，车牌识别，车牌检测识别;
