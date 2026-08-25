@@ -18,13 +18,13 @@
 5. 支持Android、ios、鸿蒙系统(HarmonyOS)部署，可获取商用测试demo(微信ID: cbp931126)
    |型号 |速度|精度 |接口|测试系统|图像大小|
    |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-   |红米K30pro(骁龙865)     |~70ms(CPU/4Core)|       99%+    |kotlin、java|android|1920*1080|
-   |红米K60(骁龙8+Gen1)        |~60ms(CPU/3Core)|       99%+    |kotlin、java|android|1920*1080|
-   |iphone13(A15)       |~50ms(CPU/2Core)|       99%+    |swift、Objective-C|ios|1920*1080|
-   |iPad Air 3(A12)      |~100ms(CPU/2Core)|       99%+    |swift、Objective-C|ios|1920*1080|
-   |iphone13(A15)       |~13ms(NPU)|       99%+    |swift、Objective-C|ios|1920*1080|
-   |iPad Air 3(A12)      |~35ms(NPU)|       99%+    |swift、Objective-C|ios|1920*1080|
-   |UNISOC7885(展锐P7885))      |~50ms/150ms(NPU/CPU)|       99%+   |kotlin、java|android|1920*1080|
+   |红米K30pro(骁龙865)        |~70ms(CPU/4Core) ~40ms(GPU)|       99%+    |kotlin、java|android|1920*1080|
+   |红米K60(骁龙8+Gen1)        |~50ms(CPU/3Core) ~30ms(GPU) ~18ms(NPU)|       99%+    |kotlin、java|android|1920*1080|
+   |红米K90 MAX(天玑9500)        |~40ms(CPU/4Core) ~28ms(GPU) ~15ms(NPU)|       99%+    |kotlin、java|android|1920*1080|
+   |华为Mate80(麒麟9020)        |~40ms(CPU/4Core) ~20ms(NPU)|       99%+    |ArkTS|HarmonyOS6.0|1920*1080|
+   |iphone13(A15)       |~50ms(CPU/2Core) ~13ms(NPU)|       99%+    |swift、Objective-C|ios|1920*1080|
+   |iPad Air 3(A12)      |~100ms(CPU/2Core) ~35ms(NPU)|       99%+    |swift、Objective-C|ios|1920*1080|
+   |UNISOC7885(展锐P7885))      |~60ms/100ms(GPU/CPU)|       99%+   |kotlin、java|android|1920*1080|
 6. 支持瑞芯微rv1106/rv1106/rk3588/rk3568/rk3576等侧端部署，可获取商用测试demo(微信ID: cbp931126)
    | 型号 |速度|精度 |接口|测试系统|图像大小|
    |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|

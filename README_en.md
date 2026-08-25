@@ -19,13 +19,13 @@ Try online recognition for Mainland Chinese, Hong Kong, Macao, and Taiwan licens
 
    | Model | Speed | Accuracy | API | Test OS | Image Size |
    |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-   | Redmi K30 Pro (Snapdragon 865) | ~70 ms (CPU/4 cores) | 99%+ | Kotlin, Java | Android | 1920*1080 |
-   | Redmi K60 (Snapdragon 8+ Gen 1) | ~60 ms (CPU/3 cores) | 99%+ | Kotlin, Java | Android | 1920*1080 |
-   | iPhone 13 (A15) | ~50 ms (CPU/2 cores) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
-   | iPad Air 3 (A12) | ~100 ms (CPU/2 cores) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
-   | iPhone 13 (A15) | ~13 ms (NPU) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
-   | iPad Air 3 (A12) | ~35 ms (NPU) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
-   | UNISOC P7885 | ~50 ms/150 ms (NPU/CPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
+   | Redmi K30 Pro (Snapdragon 865) | ~70 ms (CPU/4 cores), ~40 ms (GPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
+   | Redmi K60 (Snapdragon 8+ Gen 1) | ~50 ms (CPU/3 cores), ~30 ms (GPU), ~18 ms (NPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
+   | Redmi K90 MAX (Dimensity 9500) | ~40 ms (CPU/4 cores), ~28 ms (GPU), ~15 ms (NPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
+   | HUAWEI Mate 80 (Kirin 9020) | ~40 ms (CPU/4 cores), ~20 ms (NPU) | 99%+ | ArkTS | HarmonyOS 6.0 | 1920*1080 |
+   | iPhone 13 (A15) | ~50 ms (CPU/2 cores), ~13 ms (NPU) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
+   | iPad Air 3 (A12) | ~100 ms (CPU/2 cores), ~35 ms (NPU) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
+   | UNISOC P7885 | ~60 ms/100 ms (GPU/CPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
 6. Supports edge deployment on Rockchip RV1106/RV1126/RK3588/RK3568/RK3576 and other platforms. A commercial test demo is available (WeChat ID: cbp931126)
 
    | Model | Speed | Accuracy | API | Test OS | Image Size |

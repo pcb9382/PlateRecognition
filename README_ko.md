@@ -19,13 +19,13 @@
 
    | 모델 | 속도 | 정확도 | API | 테스트 OS | 이미지 크기 |
    |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-   | Redmi K30 Pro (Snapdragon 865) | ~70 ms (CPU/4코어) | 99%+ | Kotlin, Java | Android | 1920*1080 |
-   | Redmi K60 (Snapdragon 8+ Gen 1) | ~60 ms (CPU/3코어) | 99%+ | Kotlin, Java | Android | 1920*1080 |
-   | iPhone 13 (A15) | ~50 ms (CPU/2코어) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
-   | iPad Air 3 (A12) | ~100 ms (CPU/2코어) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
-   | iPhone 13 (A15) | ~13 ms (NPU) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
-   | iPad Air 3 (A12) | ~35 ms (NPU) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
-   | UNISOC P7885 | ~50 ms/150 ms (NPU/CPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
+   | Redmi K30 Pro (Snapdragon 865) | ~70 ms (CPU/4코어), ~40 ms (GPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
+   | Redmi K60 (Snapdragon 8+ Gen 1) | ~50 ms (CPU/3코어), ~30 ms (GPU), ~18 ms (NPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
+   | Redmi K90 MAX (Dimensity 9500) | ~40 ms (CPU/4코어), ~28 ms (GPU), ~15 ms (NPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
+   | HUAWEI Mate 80 (Kirin 9020) | ~40 ms (CPU/4코어), ~20 ms (NPU) | 99%+ | ArkTS | HarmonyOS 6.0 | 1920*1080 |
+   | iPhone 13 (A15) | ~50 ms (CPU/2코어), ~13 ms (NPU) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
+   | iPad Air 3 (A12) | ~100 ms (CPU/2코어), ~35 ms (NPU) | 99%+ | Swift, Objective-C | iOS | 1920*1080 |
+   | UNISOC P7885 | ~60 ms/100 ms (GPU/CPU) | 99%+ | Kotlin, Java | Android | 1920*1080 |
 6. Rockchip RV1106/RV1126/RK3588/RK3568/RK3576 등의 엣지 배포 지원. 상용 테스트 데모 제공 가능(WeChat ID: cbp931126)
 
    | 모델 | 속도 | 정확도 | API | 테스트 OS | 이미지 크기 |
