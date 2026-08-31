@@ -48,6 +48,12 @@ Try online recognition for Mainland Chinese, Hong Kong, Macao, and Taiwan licens
 
 ## Recognition Results
 
+### US License Plate Recognition
+<img src="resources/106.jpg" alt="drawing" width="380"/> <img src="resources/109.jpg" alt="drawing" width="380"/>
+
+### EU License Plate Recognition
+<img src="resources/101.jpg" alt="drawing" width="380"/> <img src="resources/123.jpg" alt="drawing" width="380"/>
+
 ### Lane Line + Vehicle Distance + License Plate Recognition
 <img src="resources/21.jpg" alt="drawing" width="380"/> <img src="resources/22.jpg" alt="drawing" width="380"/>
 <img src="resources/23.jpg" alt="drawing" width="380"/> <img src="resources/24.jpg" alt="drawing" width="380"/>
@@ -73,7 +79,7 @@ Try online recognition for Mainland Chinese, Hong Kong, Macao, and Taiwan licens
 <img src="resources/1(313).jpg" alt="drawing" width="380"/> <img src="resources/1(323).jpg" alt="drawing" width="380"/>
 
 # PlateAlgorithm
-## **License Plate Recognition Algorithm Supporting 12 Types of Chinese License Plates**
+## **License Plate Recognition Algorithm Supporting 11 Types of Chinese License Plates**
 **1. Single-line blue plate**  
 **2. Single-line yellow plate**  
 **3. New energy vehicle plate**  

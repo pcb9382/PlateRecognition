@@ -48,6 +48,12 @@
 
 ## 辨識效果
 
+### 美國車牌辨識效果
+<img src="resources/106.jpg" alt="drawing" width="380"/> <img src="resources/109.jpg" alt="drawing" width="380"/>
+
+### 歐盟車牌辨識效果
+<img src="resources/101.jpg" alt="drawing" width="380"/> <img src="resources/123.jpg" alt="drawing" width="380"/>
+
 ### 車道線 + 車距 + 車牌辨識效果
 <img src="resources/21.jpg" alt="drawing" width="380"/> <img src="resources/22.jpg" alt="drawing" width="380"/>
 <img src="resources/23.jpg" alt="drawing" width="380"/> <img src="resources/24.jpg" alt="drawing" width="380"/>
@@ -73,7 +79,7 @@
 <img src="resources/1(313).jpg" alt="drawing" width="380"/> <img src="resources/1(323).jpg" alt="drawing" width="380"/>
 
 # PlateAlgorithm
-## **支援 12 種中文車牌類型的車牌辨識演算法**
+## **支援 11 種中文車牌類型的車牌辨識演算法**
 **1. 單行藍牌**  
 **2. 單行黃牌**  
 **3. 新能源車牌**  
