@@ -22,5 +22,10 @@ include_directories("${CMAKE_SOURCE_DIR}/PlateDetectionRecognition/include")
 
 # 将源代码添加到此项目的可执行文件。
 add_executable(${PROJECT_NAME} ${test_src} ${test_header})
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+    PLATE_PPOCRV5_DEFAULT_MODEL_PATH="${CMAKE_SOURCE_DIR}/PlateRecognitionOCRV5/models/server/inference.onnx"
+    PLATE_PPOCRV6_DEFAULT_MODEL_PATH="${CMAKE_SOURCE_DIR}/PlateRecognitionOCRV6/models/medium/inference.onnx"
+    PLATE_LPRNET_DEFAULT_MODEL_PATH="${CMAKE_SOURCE_DIR}/PlateRecognition_LPRNet/models/lprnet_official_68.onnx")
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 target_link_libraries(${PROJECT_NAME} PlateDetectionRecognition)

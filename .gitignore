@@ -1,0 +1,14 @@
+# Locally generated TensorRT engines are GPU/version specific.
+*.engine
+*.plan
+*.trt
+*.engine.meta
+*.plan.meta
+*.trt.meta
+*.engine.lock
+*.plan.lock
+*.trt.lock
+
+# Python validation caches.
+__pycache__/
+*.py[cod]

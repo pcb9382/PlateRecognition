@@ -46,25 +46,31 @@
 
 ## 识别效果
 
-### 车道线+车距+车牌识别效果
+### 美国车牌识别
+<img src="resources/106.jpg" alt="drawing" width="380"/> <img src="resources/109.jpg" alt="drawing" width="380"/>
+
+### 欧盟车牌识别
+<img src="resources/101.jpg" alt="drawing" width="380"/> <img src="resources/123.jpg" alt="drawing" width="380"/>
+
+### 车道线+车距+车牌识别
 <img src="resources/21.jpg" alt="drawing" width="380"/> <img src="resources/22.jpg" alt="drawing" width="380"/>
 <img src="resources/23.jpg" alt="drawing" width="380"/> <img src="resources/24.jpg" alt="drawing" width="380"/>
 
-### 韩国车牌识别效果
+### 韩国车牌识别
 <img src="resources/1c30874f261703b7b8b20f93fb4ecfa1.jpg" alt="drawing" width="380"/> <img src="resources/438278612b5b53d29b563a0c92ba58c9.jpg" alt="drawing" width="380"/>
 <img src="resources/13a9d96babfbad98417379ad59d8de53.jpg" alt="drawing" width="380"/> <img src="resources/5014889dcc17dab2bf77a14a589b3164.jpg" alt="drawing" width="380"/>
 
-### 台湾车牌识别效果
+### 台湾车牌识别
 <img src="resources/taiwan_081294.jpg" alt="drawing" width="380"/> <img src="resources/taiwan_081657.jpg" alt="drawing" width="380"/>
 <img src="resources/taiwan_083023.jpg" alt="drawing" width="380"/> <img src="resources/taiwan_083192.jpg" alt="drawing" width="380"/>
 
-### 港澳车牌识别效果
+### 港澳车牌识别
 <img src="resources/2025-02-07_205049_5271.png" alt="drawing" width="380"/> <img src="resources/20250703_001005-1752890606.jpg" alt="drawing" width="380"/>
 <img src="resources/20250703_001040-1752890765.jpg" alt="drawing" width="380"/> <img src="resources/20250703_001084-1752890731.jpg" alt="drawing" width="380"/>
 
 
 
-### 大陆车牌识别效果
+### 大陆车牌识别
 <img src="resources/1.jpg" alt="drawing" width="380"/> <img src="resources/3.jpg" alt="drawing" width="380"/>
 <img src="resources/9.jpg" alt="drawing" width="380"/> <img src="resources/10.jpg" alt="drawing" width="380"/>
 <img src="PlateDetectionRecognition/test/yolov7_result/37_0315.jpg" alt="drawing" width="380"/> <img src="resources/2.jpg" alt="drawing" width="380"/>
@@ -190,4 +196,27 @@ set(TensorRT_LIB "/xxx/xxx/TensorRT-8.2.5.1/lib" CACHE INTERNAL "TensorRT Librar
 1. https://github.com/deepcam-cn/yolov5-face
 2. https://github.com/derronqi/yolov7-face/tree/main
 3. https://github.com/derronqi/yolov8-face
+
+## 新增文字识别后端
+
+已增加 `PlateRecognitionOCRV5`、`PlateRecognitionOCRV6`、
+`PlateRecognition_LPRNet` 和 `PlateRecognitionFastOCR`，C/C++ 推理统一使用
+项目的 TensorRT 8.2.5.1。
+
+- V5 已包含 `models/mobile/inference.onnx` 和 `models/server/inference.onnx`；
+  Mobile、Server 各有一份独立固化的 77 字符映射，调用时通过
+  `PlateRecognitionOCRV5Config::model_variant` 选择。
+- V6 已包含 `models/tiny/inference.onnx`、`models/small/inference.onnx` 和
+  `models/medium/inference.onnx`；tiny 使用一套固化映射，small/medium 共用 full
+  固化映射，两套映射都只包含同一组 77 字符。
+- V5/V6 部署无需外部字符字典，库及 C++ 演示成功时只输出
+  `PlateRecognition` 允许字符组成的最终字符串；LPRNet 保持官网 68 类字符定义。
+- FastOCR 已下载官网 Hub 当前全部 10 个 ONNX 和 9 份配置，并提供 10 个经数值
+  对齐的 TRT8 部署图；使用官网 37 类拉丁字符表，默认 `cct-s-v2-global-model`。
+- V5/V6 识别效果回归使用 ONNX Runtime CPU 执行 ONNX；LPRNet 的 PT→ONNX
+  一致性测试使用 PyTorch 与 ONNX Runtime；FastOCR 的 10 组官方/部署 ONNX 已逐组
+  比较数值与字符 argmax。当前 Windows 主机没有可运行的 Linux TensorRT 环境，
+  TRT engine 和 GPU 识别效果需在目标机完成最终验收。
+
+完整模型路径、编译、接口及验证命令见 [OCR_BACKENDS.md](./OCR_BACKENDS.md)。
 

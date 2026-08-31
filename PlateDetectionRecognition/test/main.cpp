@@ -1,3 +1,4 @@
+#include<cerrno>
 #include<iostream>
 #include"PlateDetectionRecognition.h"
 #include <sys/types.h>
@@ -8,9 +9,39 @@
 #include <opencv2/freetype.hpp>
 #include <chrono>
 
-#define yolov7_plate    1       //yolov7车牌检测
-#define yolov5_plate    0       //yolov5车牌检测
+#define yolov7_plate    0       //yolov7车牌检测
+#define yolov5_plate    1       //yolov5车牌检测
+#if (yolov5_plate + yolov7_plate) != 1
+#error "Select exactly one plate detector"
+#endif
+
+// Recognition backend: set exactly one option to 1. These switches are only
+// controlled here; CMake does not override them.
+#define PLATE_RECOGNITION_USE_PPOCRV5 0
+#define PLATE_RECOGNITION_USE_PPOCRV6 0
+#define PLATE_RECOGNITION_USE_LPRNET  1
+
+#if (PLATE_RECOGNITION_USE_PPOCRV5 + PLATE_RECOGNITION_USE_PPOCRV6 + \
+     PLATE_RECOGNITION_USE_LPRNET) != 1
+#error "Select exactly one recognition backend"
+#endif
+
+#ifndef PLATE_PPOCRV5_DEFAULT_MODEL_PATH
+#define PLATE_PPOCRV5_DEFAULT_MODEL_PATH \
+    "../../PlateRecognitionOCRV5/models/server/inference.onnx"
+#endif
+#ifndef PLATE_PPOCRV6_DEFAULT_MODEL_PATH
+#define PLATE_PPOCRV6_DEFAULT_MODEL_PATH \
+    "../../PlateRecognitionOCRV6/models/medium/inference.onnx"
+#endif
+#ifndef PLATE_LPRNET_DEFAULT_MODEL_PATH
+#define PLATE_LPRNET_DEFAULT_MODEL_PATH \
+    "../../PlateRecognition_LPRNet/models/lprnet_official_68.onnx"
+#endif
+
 #define PLATE_MAX       10       //每张图片最大车牌数量
+#define PLATE_LICENSE_MAX 256    //包含字符串结束符
+#define PLATE_COLOR_MAX 1        //新识别模型不输出颜色，仅保留结束符
 
 std::string getHouZhui(std::string fileName)
 {
@@ -113,6 +144,14 @@ void initPlateDet(PlateDet*PlateDets)
         }
         PlateDets[i].label=-1;
         PlateDets[i].plate_index=0;
+        if (PlateDets[i].plate_license!=NULL)
+        {
+            PlateDets[i].plate_license[0]='\0';
+        }
+        if (PlateDets[i].plate_color!=NULL)
+        {
+            PlateDets[i].plate_color[0]='\0';
+        }
     }
     return;
     
@@ -121,12 +160,22 @@ void initPlateDet(PlateDet*PlateDets)
 
 int main()
 {
-    Config config;
+    Config config{};
     config.gpu_id=0;
     //recognition
-    config.plate_recognition_bs=1;
     config.plate_recognition_enable=true;
-    config.PlateReconitionModelPath="./plate_recognition_color.onnx";  //识别模型路径
+    config.plate_result_capacity=PLATE_MAX;
+    config.plate_license_capacity=PLATE_LICENSE_MAX;
+    config.plate_color_capacity=PLATE_COLOR_MAX;
+#if PLATE_RECOGNITION_USE_PPOCRV5
+    config.PlateRecognitionPPOCRV5ModelPath=PLATE_PPOCRV5_DEFAULT_MODEL_PATH;
+    config.plate_recognition_ppocrv5_variant=
+        PlateRecognitionPPOCRV5Variant::kServer;
+#elif PLATE_RECOGNITION_USE_PPOCRV6
+    config.PlateRecognitionPPOCRV6ModelPath=PLATE_PPOCRV6_DEFAULT_MODEL_PATH;
+#else
+    config.PlateRecognitionLPRNetModelPath=PLATE_LPRNET_DEFAULT_MODEL_PATH;
+#endif
 
 #if yolov7_plate
     //ylolv7 plate detect
@@ -146,6 +195,11 @@ int main()
 #endif
 
     void *p=Initialize(&config);
+    if (p==NULL)
+    {
+        std::cerr<<"plate algorithm initialization failed"<<std::endl;
+        return 1;
+    }
     
     //字体
     std::string ttf_pathname = "NotoSansCJK-Regular.otf";                   //字体
@@ -156,14 +210,22 @@ int main()
     std::string imagepath="./data";   //待检测识别的图像文件夹
     //save path
     std::string imagepath1="./result";                                         //检测识别结果保存的文件夹
+    if (mkdir(imagepath1.c_str(),0755)!=0 && errno!=EEXIST)
+    {
+        std::cerr<<"failed to create result directory"<<std::endl;
+        Release(p,&config);
+        return 1;
+    }
     std::vector<std::string> imagList;
     std::vector<std::string>fileType{"jpg","png"};
     readFileList(const_cast<char *>(imagepath.c_str()),imagList,fileType);
     PlateDet PlateDets[PLATE_MAX];
     for (size_t j = 0; j < PLATE_MAX; j++)
     {
-        PlateDets[j].plate_license=new char[20];
-        PlateDets[j].plate_color=new char[6];
+        PlateDets[j].plate_license=new char[PLATE_LICENSE_MAX];
+        PlateDets[j].plate_color=new char[PLATE_COLOR_MAX];
+        PlateDets[j].plate_license[0]='\0';
+        PlateDets[j].plate_color[0]='\0';
     }
     Plate_ImageData*plate_imagedata=new Plate_ImageData();
     //while (1)
@@ -182,19 +244,40 @@ int main()
             plate_imagedata->image=plateimg.data;
             auto start = std::chrono::system_clock::now();
             initPlateDet(PlateDets);
+            int recognition_status=0;
 #if yolov5_plate
-            PlateRecognition_yolov5(p,plate_imagedata,PlateDets);
+#if PLATE_RECOGNITION_USE_PPOCRV5
+            recognition_status=PlateRecognition_yolov5_PPOCRV5(p,plate_imagedata,PlateDets);
+#elif PLATE_RECOGNITION_USE_PPOCRV6
+            recognition_status=PlateRecognition_yolov5(p,plate_imagedata,PlateDets);
+#else
+            recognition_status=PlateRecognition_yolov5_LPRNet(p,plate_imagedata,PlateDets);
+#endif
 #endif
 
 #if yolov7_plate
-            PlateRecognition_yolov7(p,plate_imagedata,PlateDets);
+#if PLATE_RECOGNITION_USE_PPOCRV5
+            recognition_status=PlateRecognition_yolov7_PPOCRV5(p,plate_imagedata,PlateDets);
+#elif PLATE_RECOGNITION_USE_PPOCRV6
+            recognition_status=PlateRecognition_yolov7(p,plate_imagedata,PlateDets);
+#else
+            recognition_status=PlateRecognition_yolov7_LPRNet(p,plate_imagedata,PlateDets);
+#endif
 #endif
             auto end = std::chrono::system_clock::now();
 	        std::cout<<std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()<<"us"<<std::endl;
+            if (recognition_status!=0)
+            {
+                std::cerr<<"plate recognition failed: "<<imagList[i]<<std::endl;
+                continue;
+            }
             drawBboxes(plateimg,PlateDets,ft2);//
             std::string::size_type lastPos=imagList[i].find_last_of("/");
             std::string image_name=imagList[i].substr(lastPos+1,imagList[i].size() - lastPos);
-            cv::imwrite(imagepath1+"/"+image_name,plateimg);
+            if (!cv::imwrite(imagepath1+"/"+image_name,plateimg))
+            {
+                std::cerr<<"failed to save result: "<<image_name<<std::endl;
+            }
         }
     //}
     for (size_t j = 0; j < PLATE_MAX; j++)
@@ -204,6 +287,8 @@ int main()
         delete []PlateDets[j].plate_color;
         PlateDets[j].plate_color=NULL;
     }
+    delete plate_imagedata;
+    plate_imagedata=NULL;
     Release(p,&config);
     return 0;
-}   
+}

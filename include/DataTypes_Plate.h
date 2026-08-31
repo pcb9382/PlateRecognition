@@ -1,6 +1,7 @@
 #ifndef _DATATYPES_
 #define _DATATYPES_
 
+#include <cstddef>
 #include <vector>
 #include <utility>
 #include <time.h>
@@ -76,35 +77,51 @@ typedef struct
 	int plate_index;				  //表示一张图像里面车牌数量		
 }PlateDet;
 
+enum class PlateRecognitionPPOCRV5Variant
+{
+	kMobile=0,
+	kServer=1
+};
+
 //初始化的参数
 typedef struct 
 {
-	int gpu_id;
+	int gpu_id=0;
 
 	//yolov5plate detect params
-	char* Yolov5PlateDetectModelPath;
-	float yolov5plate_confidence_thresh;
-	int yolov5plate_detect_bs;        
-	float yolov5plate_nms_thresh;
+	const char* Yolov5PlateDetectModelPath=nullptr;
+	float yolov5plate_confidence_thresh=0.3F;
+	int yolov5plate_detect_bs=1;
+	float yolov5plate_nms_thresh=0.3F;
 	bool yolov5plate_detect_enable=false;
 
 	//yolov7plate detect params
-	char* Yolov7PlateDetectModelPath;
-	float yolov7plate_confidence_thresh;
-	int yolov7plate_detect_bs;        
-	float yolov7plate_nms_thresh;
+	const char* Yolov7PlateDetectModelPath=nullptr;
+	float yolov7plate_confidence_thresh=0.3F;
+	int yolov7plate_detect_bs=1;
+	float yolov7plate_nms_thresh=0.3F;
 	bool yolov7plate_detect_enable=false;
 
 	//yolov8plate detect params
-	char* Yolov8PlateDetectModelPath;
-	float yolov8plate_confidence_thresh;
-	int yolov8plate_detect_bs;        
-	float yolov8plate_nms_thresh;
+	const char* Yolov8PlateDetectModelPath=nullptr;
+	float yolov8plate_confidence_thresh=0.3F;
+	int yolov8plate_detect_bs=1;
+	float yolov8plate_nms_thresh=0.3F;
 	bool yolov8plate_detect_enable=false;
 
-	//plate recogniton
-	char* PlateReconitionModelPath;             
-	int plate_recognition_bs;                       //人脸识别batchsize
+	//plate recognition
+	// Configure one or more paths. The original yolov5/yolov7 APIs use
+	// PP-OCRv6; APIs ending in _PPOCRV5 or _LPRNet use that named backend.
+	const char* PlateRecognitionPPOCRV5ModelPath=nullptr;
+	PlateRecognitionPPOCRV5Variant plate_recognition_ppocrv5_variant=
+		PlateRecognitionPPOCRV5Variant::kServer;
+	const char* PlateRecognitionPPOCRV6ModelPath=nullptr;
+	const char* PlateRecognitionLPRNetModelPath=nullptr;
+	// Capacities supplied by the caller. String capacities include the final
+	// '\0'. Initialize fails when recognition is enabled and any is zero.
+	std::size_t plate_result_capacity=0;
+	std::size_t plate_license_capacity=0;
+	std::size_t plate_color_capacity=0;
 	bool plate_recognition_enable=false;
 }Config;
 #endif
