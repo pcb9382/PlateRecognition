@@ -197,26 +197,3 @@ set(TensorRT_LIB "/xxx/xxx/TensorRT-8.2.5.1/lib" CACHE INTERNAL "TensorRT Librar
 2. https://github.com/derronqi/yolov7-face/tree/main
 3. https://github.com/derronqi/yolov8-face
 
-## 新增文字识别后端
-
-已增加 `PlateRecognitionOCRV5`、`PlateRecognitionOCRV6`、
-`PlateRecognition_LPRNet` 和 `PlateRecognitionFastOCR`，C/C++ 推理统一使用
-项目的 TensorRT 8.2.5.1。
-
-- V5 已包含 `models/mobile/inference.onnx` 和 `models/server/inference.onnx`；
-  Mobile、Server 各有一份独立固化的 77 字符映射，调用时通过
-  `PlateRecognitionOCRV5Config::model_variant` 选择。
-- V6 已包含 `models/tiny/inference.onnx`、`models/small/inference.onnx` 和
-  `models/medium/inference.onnx`；tiny 使用一套固化映射，small/medium 共用 full
-  固化映射，两套映射都只包含同一组 77 字符。
-- V5/V6 部署无需外部字符字典，库及 C++ 演示成功时只输出
-  `PlateRecognition` 允许字符组成的最终字符串；LPRNet 保持官网 68 类字符定义。
-- FastOCR 已下载官网 Hub 当前全部 10 个 ONNX 和 9 份配置，并提供 10 个经数值
-  对齐的 TRT8 部署图；使用官网 37 类拉丁字符表，默认 `cct-s-v2-global-model`。
-- V5/V6 识别效果回归使用 ONNX Runtime CPU 执行 ONNX；LPRNet 的 PT→ONNX
-  一致性测试使用 PyTorch 与 ONNX Runtime；FastOCR 的 10 组官方/部署 ONNX 已逐组
-  比较数值与字符 argmax。当前 Windows 主机没有可运行的 Linux TensorRT 环境，
-  TRT engine 和 GPU 识别效果需在目标机完成最终验收。
-
-完整模型路径、编译、接口及验证命令见 [OCR_BACKENDS.md](./OCR_BACKENDS.md)。
-

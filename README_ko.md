@@ -197,28 +197,3 @@ set(TensorRT_LIB "/xxx/xxx/TensorRT-8.2.5.1/lib" CACHE INTERNAL "TensorRT Librar
 2. https://github.com/derronqi/yolov7-face/tree/main
 3. https://github.com/derronqi/yolov8-face
 
-## 새 텍스트 인식 백엔드
-
-`PlateRecognitionOCRV5`, `PlateRecognitionOCRV6`,
-`PlateRecognition_LPRNet`, `PlateRecognitionFastOCR`가 추가되었습니다. C/C++ 추론은
-모두 프로젝트의 TensorRT 8.2.5.1을 사용합니다.
-
-- V5에는 `models/mobile/inference.onnx`와 `models/server/inference.onnx`가 포함되어 있습니다.
-  Mobile과 Server에는 각각 고정된 77자 매핑이 있으며, 호출할 때
-  `PlateRecognitionOCRV5Config::model_variant`로 선택합니다.
-- V6에는 `models/tiny/inference.onnx`, `models/small/inference.onnx`,
-  `models/medium/inference.onnx`가 포함되어 있습니다. tiny는 별도의 고정 매핑을 사용하고,
-  small/medium은 full 고정 매핑을 공유하며, 두 매핑은 모두 동일한 77자 집합만 포함합니다.
-- V5/V6 배포에는 외부 문자 사전이 필요하지 않습니다. 라이브러리와 C++ 데모는 성공 시
-  `PlateRecognition`에서 허용하는 문자로만 구성된 최종 문자열을 출력합니다. LPRNet은
-  공식 68개 클래스 문자 정의를 그대로 유지합니다.
-- FastOCR에는 공식 Hub에서 제공하는 현재 전체 모델인 ONNX 10개와 설정 파일 9개가
-  다운로드되어 있으며, 수치 정합성을 맞춘 TensorRT 8 배포 그래프 10개도 제공합니다.
-  공식 37개 라틴 문자 집합을 사용하며 기본 모델은 `cct-s-v2-global-model`입니다.
-- V5/V6 인식 결과 회귀 테스트는 ONNX Runtime CPU에서 ONNX를 실행합니다. LPRNet의
-  PyTorch→ONNX 일관성 테스트는 PyTorch와 ONNX Runtime을 사용하며, FastOCR의 공식/배포
-  ONNX 10개 쌍은 수치와 문자 argmax를 각각 비교했습니다. 현재 Windows 호스트에는 실행
-  가능한 Linux TensorRT 환경이 없으므로 TensorRT 엔진과 GPU 인식 결과는 대상 장비에서
-  최종 검증해야 합니다.
-
-전체 모델 경로, 빌드 방법, API 및 검증 명령은 [OCR_BACKENDS.md](./OCR_BACKENDS.md)를 참조하세요.

@@ -193,26 +193,3 @@ make -j6
 1. https://github.com/deepcam-cn/yolov5-face
 2. https://github.com/derronqi/yolov7-face/tree/main
 3. https://github.com/derronqi/yolov8-face
-
-## 新增文字識別後端
-
-已增加 `PlateRecognitionOCRV5`、`PlateRecognitionOCRV6`、
-`PlateRecognition_LPRNet` 與 `PlateRecognitionFastOCR`，C/C++ 推論統一使用
-專案的 TensorRT 8.2.5.1。
-
-- V5 已包含 `models/mobile/inference.onnx` 與 `models/server/inference.onnx`；
-  Mobile、Server 各有一份獨立固化的 77 字元映射，呼叫時透過
-  `PlateRecognitionOCRV5Config::model_variant` 選擇。
-- V6 已包含 `models/tiny/inference.onnx`、`models/small/inference.onnx` 與
-  `models/medium/inference.onnx`；tiny 使用一套固化映射，small/medium 共用 full
-  固化映射，兩套映射都只包含同一組 77 字元。
-- V5/V6 部署不需要外部字元字典，函式庫及 C++ 範例成功時只輸出由
-  `PlateRecognition` 允許字元組成的最終字串；LPRNet 維持官網 68 類字元定義。
-- FastOCR 已下載官網 Hub 目前全部 10 個 ONNX 與 9 份設定，並提供 10 個經數值
-  對齊的 TRT8 部署圖；使用官網 37 類拉丁字元表，預設 `cct-s-v2-global-model`。
-- V5/V6 辨識效果迴歸使用 ONNX Runtime CPU 執行 ONNX；LPRNet 的 PT→ONNX
-  一致性測試使用 PyTorch 與 ONNX Runtime；FastOCR 的 10 組官方/部署 ONNX 已逐組
-  比較數值與字元 argmax。目前 Windows 主機沒有可執行的 Linux TensorRT 環境，
-  TRT engine 與 GPU 辨識效果仍須在目標機完成最終驗收。
-
-完整模型路徑、編譯、介面及驗證命令見 [OCR_BACKENDS.md](./OCR_BACKENDS.md)。

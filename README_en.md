@@ -193,33 +193,3 @@ make -j6
 1. https://github.com/deepcam-cn/yolov5-face
 2. https://github.com/derronqi/yolov7-face/tree/main
 3. https://github.com/derronqi/yolov8-face
-
-## Recognition-only backends
-
-`PlateRecognitionOCRV5`, `PlateRecognitionOCRV6`,
-`PlateRecognition_LPRNet`, and `PlateRecognitionFastOCR` use the project's
-TensorRT 8.2.5.1 runtime for their C/C++ inference paths.
-
-- V5 includes `models/mobile/inference.onnx` and
-  `models/server/inference.onnx`. Mobile and Server each have an independently
-  embedded sparse mapping for the same 77 allowed characters; select the
-  matching mapping with `PlateRecognitionOCRV5Config::model_variant`.
-- V6 includes `models/tiny/inference.onnx`, `models/small/inference.onnx`, and
-  `models/medium/inference.onnx`. Tiny has its own embedded 77-character
-  mapping, while Small and Medium share the full-model mapping.
-- V5/V6 require no external deployment dictionary. Their libraries and C++
-  demos emit only the final string made from characters allowed by
-  `PlateRecognition`; LPRNet keeps the official 68-class alphabet.
-- FastOCR includes all ten ONNX models and nine configurations currently in
-  the official Hub, plus ten numerically aligned TRT8 deployment graphs. It
-  uses the official 37-class Latin alphabet and defaults to
-  `cct-s-v2-global-model`.
-- V5/V6 recognition regressions execute the ONNX models with ONNX Runtime on
-  CPU. The LPRNet PT-to-ONNX comparison uses PyTorch and ONNX Runtime. All ten
-  FastOCR official/deployment pairs are compared numerically and by character
-  argmax. This Windows host has no runnable Linux TensorRT environment, so
-  engine creation and GPU recognition must still be accepted on the target
-  machine.
-
-See [OCR_BACKENDS.md](./OCR_BACKENDS.md) for complete model paths, build
-options, APIs, and validation commands.
