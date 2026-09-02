@@ -4,10 +4,9 @@ If you find this project useful, please consider giving it a Star ⭐️🌟. Th
 
 # Acknowledgments & Contact
 ### 1. WeChat ID: cbp931126   
-1. Join the discussion group (include `PlateAlgorithm` in your request). There are many experienced developers actively sharing and learning;
-2. Add the WeChat account to obtain a curated collection of open-source and selected private license plate detection and recognition datasets (a fee of CNY 30 is required for the data);
 
-### 2. Email: cbp931126@163.com
+### 2. Email:
+   cbp931126@163.com
 
 # Web Test
 ## 1. Try License Plate Recognition Online:
