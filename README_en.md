@@ -10,7 +10,8 @@ If you find this project useful, please consider giving it a Star ⭐️🌟. Th
 ### 2. Email: cbp931126@163.com
 
 # Web Test
-## 1. Try online recognition for Mainland Chinese, Hong Kong, Macao, and Taiwan license plates: http://vision.zhoujiayao.com/
+## 1. Try License Plate Recognition Online:
+   http://vision.zhoujiayao.com/
 
 ## 2. Countries and Regions Supported by License Plate Recognition
 ### Asia

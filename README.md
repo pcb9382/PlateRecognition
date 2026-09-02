@@ -11,7 +11,8 @@
 
 
 # Web Test
-## 1. 大陆车牌识别、港澳车牌识别、台湾车牌识别在线体验：http://vision.zhoujiayao.com/
+## 1. 车牌识别在线体验：
+   http://vision.zhoujiayao.com/
 
 ## 2. 车牌识别支持的国家和地区
 ### 亚洲
