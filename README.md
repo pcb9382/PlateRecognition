@@ -7,8 +7,27 @@
 1. 加入讨论群(备注：PlateAlgorithm),大佬多多多卷卷卷；
 2. 加微信可以获得整理好的开源和部分私有车牌检测和识别数据(数据需要30元费用)；
 
+### 2.邮箱:cbp931126@163.com
+
+
 # Web Test
-大陆车牌识别、港澳车牌识别、台湾车牌识别在线体验:http://vision.zhoujiayao.com/
+## 1. 大陆车牌识别、港澳车牌识别、台湾车牌识别在线体验：http://vision.zhoujiayao.com/
+
+## 2. 车牌识别支持的国家和地区
+### 亚洲
+中国大陆 中国香港 中国澳门 中国台湾 韩国 日本 新加坡 泰国 马来西亚 印度尼西亚 越南 土耳其 以色列 卡塔尔 巴林 柬埔寨 格鲁吉亚 亚美尼亚 阿塞拜疆
+
+### 欧洲
+英国 法国 德国 意大利 西班牙 瑞士 荷兰 奥地利 比利时 葡萄牙 希腊 爱尔兰 瑞典 挪威 丹麦 芬兰 波兰 捷克 匈牙利 罗马尼亚 克罗地亚 冰岛 卢森堡 塞浦路斯 马耳他 保加利亚 斯洛伐克 斯洛文尼亚 爱沙尼亚 立陶宛 拉脱维亚 乌克兰 塞尔维亚 黑山 阿尔巴尼亚 波斯尼亚和黑塞哥维那 北马其顿 摩尔多瓦 白俄罗斯 安道尔 摩纳哥 列支敦士登 圣马力诺 直布罗陀 根西岛
+
+### 北美洲
+美国 加拿大 墨西哥
+
+### 南美洲
+巴西 阿根廷
+
+### 大洋洲
+澳大利亚 新西兰
 
 ## 特性
 1. 支持车牌识别+车牌颜色+车辆距离+车道线识别
@@ -44,33 +63,32 @@
 9. 支持爱芯系列侧端部署:
 
 
-## 识别效果
+# 识别效果
 
-### 美国车牌识别
+## 美国车牌识别
 <img src="resources/106.jpg" alt="drawing" width="380"/> <img src="resources/109.jpg" alt="drawing" width="380"/>
 
-### 欧盟车牌识别
+## 欧洲车牌识别
 <img src="resources/101.jpg" alt="drawing" width="380"/> <img src="resources/123.jpg" alt="drawing" width="380"/>
 
-### 车道线+车距+车牌识别
+## 车道线+车距+车牌识别
 <img src="resources/21.jpg" alt="drawing" width="380"/> <img src="resources/22.jpg" alt="drawing" width="380"/>
 <img src="resources/23.jpg" alt="drawing" width="380"/> <img src="resources/24.jpg" alt="drawing" width="380"/>
 
-### 韩国车牌识别
+## 韩国车牌识别
 <img src="resources/1c30874f261703b7b8b20f93fb4ecfa1.jpg" alt="drawing" width="380"/> <img src="resources/438278612b5b53d29b563a0c92ba58c9.jpg" alt="drawing" width="380"/>
 <img src="resources/13a9d96babfbad98417379ad59d8de53.jpg" alt="drawing" width="380"/> <img src="resources/5014889dcc17dab2bf77a14a589b3164.jpg" alt="drawing" width="380"/>
 
-### 台湾车牌识别
+## 台湾车牌识别
 <img src="resources/taiwan_081294.jpg" alt="drawing" width="380"/> <img src="resources/taiwan_081657.jpg" alt="drawing" width="380"/>
 <img src="resources/taiwan_083023.jpg" alt="drawing" width="380"/> <img src="resources/taiwan_083192.jpg" alt="drawing" width="380"/>
 
-### 港澳车牌识别
+## 港澳车牌识别
 <img src="resources/2025-02-07_205049_5271.png" alt="drawing" width="380"/> <img src="resources/20250703_001005-1752890606.jpg" alt="drawing" width="380"/>
 <img src="resources/20250703_001040-1752890765.jpg" alt="drawing" width="380"/> <img src="resources/20250703_001084-1752890731.jpg" alt="drawing" width="380"/>
 
 
-
-### 大陆车牌识别
+## 中国大陆车牌识别
 <img src="resources/1.jpg" alt="drawing" width="380"/> <img src="resources/3.jpg" alt="drawing" width="380"/>
 <img src="resources/9.jpg" alt="drawing" width="380"/> <img src="resources/10.jpg" alt="drawing" width="380"/>
 <img src="PlateDetectionRecognition/test/yolov7_result/37_0315.jpg" alt="drawing" width="380"/> <img src="resources/2.jpg" alt="drawing" width="380"/>

@@ -3,12 +3,30 @@
 If you find this project useful, please consider giving it a Star ⭐️🌟. Thank you!
 
 # Acknowledgments & Contact
-### 1. WeChat ID: cbp931126
+### 1. WeChat ID: cbp931126   
 1. Join the discussion group (include `PlateAlgorithm` in your request). There are many experienced developers actively sharing and learning;
 2. Add the WeChat account to obtain a curated collection of open-source and selected private license plate detection and recognition datasets (a fee of CNY 30 is required for the data);
 
+### 2. Email: cbp931126@163.com
+
 # Web Test
-Try online recognition for Mainland Chinese, Hong Kong, Macao, and Taiwan license plates: http://vision.zhoujiayao.com/
+## 1. Try online recognition for Mainland Chinese, Hong Kong, Macao, and Taiwan license plates: http://vision.zhoujiayao.com/
+
+## 2. Countries and Regions Supported by License Plate Recognition
+### Asia
+Mainland China, Hong Kong, Macao, Taiwan, South Korea, Japan, Singapore, Thailand, Malaysia, Indonesia, Vietnam, Turkey, Israel, Qatar, Bahrain, Cambodia, Georgia, Armenia, Azerbaijan
+
+### Europe
+United Kingdom, France, Germany, Italy, Spain, Switzerland, Netherlands, Austria, Belgium, Portugal, Greece, Ireland, Sweden, Norway, Denmark, Finland, Poland, Czech Republic, Hungary, Romania, Croatia, Iceland, Luxembourg, Cyprus, Malta, Bulgaria, Slovakia, Slovenia, Estonia, Lithuania, Latvia, Ukraine, Serbia, Montenegro, Albania, Bosnia and Herzegovina, North Macedonia, Moldova, Belarus, Andorra, Monaco, Liechtenstein, San Marino, Gibraltar, Guernsey
+
+### North America
+United States, Canada, Mexico
+
+### South America
+Brazil, Argentina
+
+### Oceania
+Australia, New Zealand
 
 ## Features
 1. Supports license plate recognition, plate color recognition, vehicle distance estimation, and lane line detection
